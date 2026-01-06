@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashlem - Essays on design, technology, and meaning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f5f5f0;
+            color: #2d2d2d;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+            background-color: #f5f5f0;
+        }
+
+        .logo a,
+.logo a:visited,
+.logo a:hover,
+.logo a:active {
+    color: #2d2d2d;
+    text-decoration: none;
+}
+
+
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2d2d2d;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 900px;
+            margin: 6rem auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 600px;
+        }
+
+        /* Articles Section */
+        .articles-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 3rem;
+        }
+
+        /* Article Card */
+        .article {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .article:last-child {
+            border-bottom: none;
+        }
+
+        .article-meta {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .article h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .article p {
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .read-more {
+            color: #2d2d2d;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #2d2d2d;
+            padding-bottom: 2px;
+        }
+
+        .read-more:hover {
+            opacity: 0.7;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background-color: #fff;
+            padding: 4rem 2rem;
+            margin-top: 6rem;
+        }
+
+        .newsletter-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .newsletter p {
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            padding: 0.9rem 2rem;
+            background-color: #2d2d2d;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #444;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .social-link {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            color: #2d2d2d;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+        <a href="#home">dashlem</a>
+    </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="#newsletter">Newsletter</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Essays on self improvement, business, philosophy, and way more.</h1>
+        <p>I'm dashlem, and I write about the ideas that shape my thinking. These are my attempts to make sense of the world.</p>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles-section" id="articles">
+        <h3 class="section-title">Latest Articles</h3>
+
+        <!-- 
+        ═══════════════════════════════════════════════════════════════
+        COMMENT AJOUTER UN ARTICLE :
+        ═══════════════════════════════════════════════════════════════
+        
+        Copiez le bloc <article> ci-dessous et modifiez :
+        - La date et le temps de lecture dans <div class="article-meta">
+        - Le titre dans <h2>
+        - La description dans <p>
+        - Le lien dans <a href="">
+        
+        Exemple :
+        <article class="article">
+            <div class="article-meta">JANVIER 2025 · 5 MIN READ</div>
+            <h2>Votre Nouveau Titre</h2>
+            <p>Votre description ici...</p>
+            <a href="#" class="read-more">Read more</a>
+        </article>
+        
+        ═══════════════════════════════════════════════════════════════
+        COMMENT SUPPRIMER UN ARTICLE :
+        ═══════════════════════════════════════════════════════════════
+        
+        Supprimez simplement tout le bloc <article>...</article>
+        
+        ═══════════════════════════════════════════════════════════════
+        -->
+
+        <!-- ARTICLE 1 -->
+        <article class="article">
+            <div class="article-meta">JANUARY 2026 · 3 MIN READ</div>
+            <h2>Why do some people give up and others don’t?</h2>
+            <p>Every entrepreneur has failed. Even I have, even though I am very youn (16) and barely an entrepreneur. I’ve struggled with over seven businesses that I gave up on. But why did I?
+                And how am I now sure that I'll never give up anymore?</p>
+            <a href="https://dashlem.xyz/failing-article/" class="read-more">Read more</a>
+        </article>
+
+        <!-- 
+        Pour ajouter plus d'articles, copiez un des blocs ci-dessus
+        et collez-le ici, puis modifiez le contenu.
+        -->
+
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="newsletter">
+        <div class="newsletter-content">
+            <h2>Subscribe to my newsletter</h2>
+            <p>I share my thoughts on design, technology, and life. No spam, unsubscribe anytime.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>© 2025 dashlem. All rights reserved.</div>
+        <a href="https://x.com/thedashlem" class="social-link">@thedashlem</a>
+    </footer>
+
+    <script>
+        // Gestion du formulaire newsletter
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert('Merci pour votre inscription ! Email : ' + email);
+            this.reset();
+        });
+
+        // Smooth scroll pour les liens de navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
