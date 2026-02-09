@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashlem | Embrace conservatism, capitalism and entrepreneurship</title>
+    <title>Le Condensé | Lisez moins, sachez plus</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,28 +15,28 @@
         }
 
         :root {
-            --color-ink: #1a1614;
-            --color-cream: #faf8f5;
-            --color-sage: #7a8c7e;
-            --color-rust: #c75f3f;
-            --color-gold: #d4a574;
-            --color-mist: #e8e4de;
-            --serif: 'Fraunces', serif;
-            --sans: 'Epilogue', sans-serif;
+            --color-primary: #0047AB;
+            --color-dark: #050505;
+            --color-darker: #000000;
+            --color-light: #ffffff;
+            --color-gray: #888888;
+            --color-border: #0f0f0f;
+            --serif: 'IBM Plex Serif', serif;
+            --sans: 'IBM Plex Sans', sans-serif;
         }
 
         body {
             font-family: var(--sans);
-            background: var(--color-cream);
-            color: var(--color-ink);
+            background: var(--color-dark);
+            color: var(--color-light);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* Header */
         header {
-            border-bottom: 1px solid var(--color-mist);
-            background: var(--color-cream);
+            border-bottom: 1px solid var(--color-border);
+            background: var(--color-darker);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -56,7 +56,7 @@
             font-family: var(--serif);
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--color-ink);
+            color: var(--color-light);
             text-decoration: none;
             letter-spacing: -0.02em;
         }
@@ -69,7 +69,7 @@
         }
 
         .nav-links a {
-            color: var(--color-ink);
+            color: var(--color-light);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
@@ -78,22 +78,22 @@
         }
 
         .nav-links a:hover {
-            color: var(--color-rust);
+            color: var(--color-primary);
         }
 
         .cta-btn {
-            background: var(--color-ink);
-            color: var(--color-cream);
+            background: var(--color-primary);
+            color: var(--color-light);
             padding: 0.7rem 1.8rem;
-            border-radius: 50px;
+            border-radius: 4px;
             font-weight: 600;
             transition: all 0.3s;
         }
 
         .cta-btn:hover {
-            background: var(--color-rust);
+            background: #0056d6;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(199, 95, 63, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 71, 171, 0.3);
         }
 
         /* Hero Section */
@@ -113,7 +113,7 @@
             transform: translateX(-50%);
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 71, 171, 0.1) 0%, transparent 70%);
             pointer-events: none;
             animation: pulse 8s ease-in-out infinite;
         }
@@ -147,7 +147,7 @@
 
         .hero p {
             font-size: 1.3rem;
-            color: var(--color-sage);
+            color: var(--color-gray);
             max-width: 700px;
             margin: 0 auto 3rem;
             line-height: 1.8;
@@ -165,25 +165,30 @@
         .subscribe-form input {
             flex: 1;
             padding: 1rem 1.5rem;
-            border: 2px solid var(--color-mist);
-            border-radius: 50px;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
             font-size: 1rem;
             font-family: var(--sans);
-            background: white;
+            background: var(--color-darker);
+            color: var(--color-light);
             transition: border-color 0.3s;
         }
 
         .subscribe-form input:focus {
             outline: none;
-            border-color: var(--color-rust);
+            border-color: var(--color-primary);
+        }
+
+        .subscribe-form input::placeholder {
+            color: var(--color-gray);
         }
 
         .subscribe-form button {
             padding: 1rem 2.5rem;
-            background: var(--color-ink);
-            color: var(--color-cream);
+            background: var(--color-primary);
+            color: var(--color-light);
             border: none;
-            border-radius: 50px;
+            border-radius: 4px;
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
@@ -192,59 +197,9 @@
         }
 
         .subscribe-form button:hover {
-            background: var(--color-rust);
+            background: #0056d6;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(199, 95, 63, 0.3);
-        }
-
-        /* Features */
-        .features {
-            background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-mist) 100%);
-            padding: 5rem 2rem;
-        }
-
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 2rem;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        .feature:nth-child(1) { animation-delay: 0.1s; }
-        .feature:nth-child(2) { animation-delay: 0.2s; }
-        .feature:nth-child(3) { animation-delay: 0.3s; }
-        .feature:nth-child(4) { animation-delay: 0.4s; }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature h3 {
-            font-family: var(--serif);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .feature p {
-            color: var(--color-sage);
-            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0, 71, 171, 0.3);
         }
 
         /* Newsletter Grid */
@@ -260,7 +215,7 @@
             align-items: center;
             margin-bottom: 3rem;
             padding-bottom: 1rem;
-            border-bottom: 2px solid var(--color-ink);
+            border-bottom: 1px solid var(--color-border);
         }
 
         .section-header h2 {
@@ -270,7 +225,7 @@
         }
 
         .view-all {
-            color: var(--color-rust);
+            color: var(--color-primary);
             text-decoration: none;
             font-weight: 600;
             display: flex;
@@ -290,17 +245,18 @@
         }
 
         .article-card {
-            background: white;
-            border-radius: 12px;
+            background: var(--color-darker);
+            border-radius: 4px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--color-mist);
+            border: 1px solid var(--color-border);
             cursor: pointer;
         }
 
         .article-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(26, 22, 20, 0.1);
+            box-shadow: 0 12px 40px rgba(0, 71, 171, 0.2);
+            border-color: var(--color-primary);
         }
 
         .article-image {
@@ -308,6 +264,7 @@
             height: 240px;
             object-fit: cover;
             transition: transform 0.6s;
+            filter: grayscale(20%);
         }
 
         .article-card:hover .article-image {
@@ -319,7 +276,7 @@
         }
 
         .article-date {
-            color: var(--color-sage);
+            color: var(--color-gray);
             font-size: 0.9rem;
             margin-bottom: 1rem;
             font-weight: 500;
@@ -332,11 +289,11 @@
             font-weight: 600;
             line-height: 1.3;
             margin-bottom: 1rem;
-            color: var(--color-ink);
+            color: var(--color-light);
         }
 
         .article-excerpt {
-            color: var(--color-sage);
+            color: var(--color-gray);
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
@@ -348,19 +305,19 @@
         }
 
         .tag {
-            background: var(--color-mist);
+            background: var(--color-border);
             padding: 0.4rem 1rem;
-            border-radius: 20px;
+            border-radius: 4px;
             font-size: 0.85rem;
-            color: var(--color-sage);
+            color: var(--color-light);
             font-weight: 500;
         }
 
         .premium-badge {
-            background: var(--color-gold);
-            color: var(--color-ink);
+            background: var(--color-primary);
+            color: var(--color-light);
             padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+            border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 600;
             display: inline-block;
@@ -369,12 +326,14 @@
 
         /* CTA Section */
         .cta-section {
-            background: var(--color-ink);
-            color: var(--color-cream);
+            background: var(--color-darker);
+            color: var(--color-light);
             padding: 6rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
         }
 
         .cta-section::before {
@@ -384,7 +343,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(199, 95, 63, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 71, 171, 0.1) 0%, transparent 70%);
             animation: rotate 30s linear infinite;
         }
 
@@ -409,31 +368,31 @@
         .cta-section p {
             font-size: 1.2rem;
             margin-bottom: 3rem;
-            color: var(--color-mist);
+            color: var(--color-gray);
         }
 
         .cta-section .subscribe-form input {
-            background: rgba(250, 248, 245, 0.1);
-            border-color: rgba(250, 248, 245, 0.2);
-            color: var(--color-cream);
+            background: var(--color-dark);
+            border-color: var(--color-border);
+            color: var(--color-light);
         }
 
         .cta-section .subscribe-form input::placeholder {
-            color: rgba(250, 248, 245, 0.5);
+            color: var(--color-gray);
         }
 
         .cta-section .subscribe-form button {
-            background: var(--color-rust);
+            background: var(--color-primary);
         }
 
         .cta-section .subscribe-form button:hover {
-            background: var(--color-gold);
+            background: #0056d6;
         }
 
         /* Footer */
         footer {
-            background: var(--color-ink);
-            color: var(--color-mist);
+            background: var(--color-darker);
+            color: var(--color-gray);
             padding: 4rem 2rem 2rem;
         }
 
@@ -451,11 +410,11 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--color-cream);
+            color: var(--color-light);
         }
 
         .footer-description {
-            color: var(--color-mist);
+            color: var(--color-gray);
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
@@ -468,18 +427,20 @@
         .social-links a {
             width: 40px;
             height: 40px;
-            background: rgba(250, 248, 245, 0.1);
-            border-radius: 50%;
+            background: var(--color-dark);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-cream);
+            color: var(--color-light);
             text-decoration: none;
             transition: all 0.3s;
         }
 
         .social-links a:hover {
-            background: var(--color-rust);
+            background: var(--color-primary);
+            border-color: var(--color-primary);
             transform: translateY(-3px);
         }
 
@@ -487,7 +448,7 @@
             font-family: var(--serif);
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
-            color: var(--color-cream);
+            color: var(--color-light);
         }
 
         .footer-section ul {
@@ -499,22 +460,22 @@
         }
 
         .footer-section a {
-            color: var(--color-mist);
+            color: var(--color-gray);
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .footer-section a:hover {
-            color: var(--color-rust);
+            color: var(--color-primary);
         }
 
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
             padding-top: 2rem;
-            border-top: 1px solid rgba(250, 248, 245, 0.1);
+            border-top: 1px solid var(--color-border);
             text-align: center;
-            color: var(--color-sage);
+            color: var(--color-gray);
             font-size: 0.9rem;
         }
 
@@ -568,7 +529,7 @@
     <!-- Header -->
     <header>
         <nav>
-            <a href="#" class="logo">Dashlem's thoughts</a>
+            <a href="#" class="logo">Le Condensé</a>
             <ul class="nav-links">
                 <li><a href="#newsletter">Newsletter</a></li>
                 <li><a href="#archive">Archives</a></li>
@@ -588,32 +549,6 @@
         </form>
     </section>
 
-    <!-- Features -->
-    <section class="features">
-        <div class="features-container">
-            <div class="feature">
-                <span class="feature-icon">🎯</span>
-                <h3>L'essentiel</h3>
-                <p>Nous lisons pour vous des centaines de sources et sélectionnons uniquement le meilleur</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">⚡</span>
-                <h3>5 minutes</h3>
-                <p>Toute l'information dont vous avez besoin, condensée en un format rapide et efficace</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">🧠</span>
-                <h3>Analyses pointues</h3>
-                <p>Des analyses approfondies et des perspectives uniques sur l'actualité mondiale</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">✨</span>
-                <h3>Style unique</h3>
-                <p>Une écriture intelligente et accessible, avec notre touche d'humour et d'esprit</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Newsletter Grid -->
     <section class="newsletter-grid">
         <div class="section-header">
@@ -629,9 +564,9 @@
                     <h3 class="article-title">L'intelligence artificielle redéfinit le monde du travail</h3>
                     <p class="article-excerpt">Une analyse des transformations majeures apportées par l'IA dans les entreprises et leurs impacts sur l'emploi au cours des prochaines années.</p>
                     <div class="article-tags">
-                        <span class="tag">💼 Business</span>
-                        <span class="tag">🤖 Tech</span>
-                        <span class="tag">🌍 Société</span>
+                        <span class="tag">Business</span>
+                        <span class="tag">Tech</span>
+                        <span class="tag">Société</span>
                     </div>
                 </div>
             </article>
@@ -639,13 +574,13 @@
             <article class="article-card">
                 <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop" alt="Article" class="article-image">
                 <div class="article-content">
-                    <span class="premium-badge">⭐ Premium</span>
+                    <span class="premium-badge">Premium</span>
                     <div class="article-date">7 février 2026</div>
                     <h3 class="article-title">Les nouvelles routes de la géopolitique mondiale</h3>
                     <p class="article-excerpt">Comment les bouleversements récents redessinent les alliances internationales et influencent l'économie globale.</p>
                     <div class="article-tags">
-                        <span class="tag">🌐 Géopolitique</span>
-                        <span class="tag">💰 Économie</span>
+                        <span class="tag">Géopolitique</span>
+                        <span class="tag">Économie</span>
                     </div>
                 </div>
             </article>
@@ -657,8 +592,8 @@
                     <h3 class="article-title">La révolution verte accélère en Europe</h3>
                     <p class="article-excerpt">Les initiatives environnementales se multiplient sur le continent avec des résultats encourageants pour la transition écologique.</p>
                     <div class="article-tags">
-                        <span class="tag">🌱 Environnement</span>
-                        <span class="tag">🇪🇺 Europe</span>
+                        <span class="tag">Environnement</span>
+                        <span class="tag">Europe</span>
                     </div>
                 </div>
             </article>
@@ -666,14 +601,14 @@
             <article class="article-card">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop" alt="Article" class="article-image">
                 <div class="article-content">
-                    <span class="premium-badge">⭐ Premium</span>
+                    <span class="premium-badge">Premium</span>
                     <div class="article-date">5 février 2026</div>
                     <h3 class="article-title">Les startups françaises en pleine renaissance</h3>
                     <p class="article-excerpt">L'écosystème entrepreneurial français connaît une croissance record avec des levées de fonds historiques.</p>
                     <div class="article-tags">
-                        <span class="tag">🚀 Startup</span>
-                        <span class="tag">🇫🇷 France</span>
-                        <span class="tag">💸 Finance</span>
+                        <span class="tag">Startup</span>
+                        <span class="tag">France</span>
+                        <span class="tag">Finance</span>
                     </div>
                 </div>
             </article>
@@ -685,8 +620,8 @@
                     <h3 class="article-title">Culture : le retour des expériences immersives</h3>
                     <p class="article-excerpt">Les musées et institutions culturelles réinventent l'expérience visiteur avec la technologie et l'innovation.</p>
                     <div class="article-tags">
-                        <span class="tag">🎨 Culture</span>
-                        <span class="tag">🎭 Art</span>
+                        <span class="tag">Culture</span>
+                        <span class="tag">Art</span>
                     </div>
                 </div>
             </article>
@@ -698,8 +633,8 @@
                     <h3 class="article-title">L'immobilier face aux nouveaux défis urbains</h3>
                     <p class="article-excerpt">Entre télétravail et nouvelles aspirations, le marché immobilier se transforme profondément dans les grandes métropoles.</p>
                     <div class="article-tags">
-                        <span class="tag">🏠 Immobilier</span>
-                        <span class="tag">🏙️ Urbanisme</span>
+                        <span class="tag">Immobilier</span>
+                        <span class="tag">Urbanisme</span>
                     </div>
                 </div>
             </article>
@@ -722,13 +657,13 @@
     <footer>
         <div class="footer-content">
             <div>
-                <div class="footer-brand">Dashlem</div>
-                <p class="footer-description">Our articles make the world greater and clever.</p>
+                <div class="footer-brand">Le Condensé</div>
+                <p class="footer-description">La newsletter quotidienne qui vous fait gagner du temps. Plus de 150 000 lecteurs nous font confiance chaque jour.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Twitter">𝕏</a>
                     <a href="#" aria-label="LinkedIn">in</a>
                     <a href="#" aria-label="Facebook">f</a>
-                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Instagram">IG</a>
                 </div>
             </div>
             
@@ -764,7 +699,7 @@
         </div>
         
         <div class="footer-bottom">
-            © 2026 Dashlem. All rights reserved
+            © 2026 Le Condensé. Tous droits réservés. Fait à Paris.
         </div>
     </footer>
 
