@@ -1,444 +1,483 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Longevity</title>
+<title>Dan's Thoughts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #0c0c0e;
-    --surface: #111114;
-    --border: #1e1e24;
+    --bg: #080c14;
+    --border: #131c2e;
+    --text: #8a9ab8;
+    --text-dim: #3d4f6a;
+    --text-bright: #c0d0e8;
+    --highlight: #2d5bbf;
   }
 
-  html { scroll-behavior: smooth; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     background: var(--bg);
-    color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
 
   /* NAV */
   nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 48px;
+    padding: 1.4rem 4rem;
     border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: rgba(12,12,14,0.92);
-    backdrop-filter: blur(16px);
-    z-index: 10;
+    background: rgba(8, 12, 20, 0.95);
+    backdrop-filter: blur(12px);
+    animation: fadeDown 0.7s ease both;
   }
 
   .logo {
-    font-size: 0.72rem;
+    font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #fff;
+    color: var(--text-bright);
+  }
+
+  nav ul { list-style: none; display: flex; gap: 2.5rem; }
+  nav ul li a {
+    color: var(--text-dim);
     text-decoration: none;
+    font-size: 0.78rem;
+    transition: color 0.25s;
   }
-
-  .nav-right { display: flex; gap: 28px; align-items: center; }
-
-  .nav-right a {
-    font-size: 0.72rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  .nav-right a:hover { color: #fff; }
-
-  .nav-cta {
-    color: #fff !important;
-    border: 1px solid rgba(255,255,255,0.15) !important;
-    padding: 8px 18px;
-    border-radius: 4px;
-    transition: border-color 0.15s !important;
-  }
-
-  .nav-cta:hover { border-color: rgba(255,255,255,0.4) !important; }
+  nav ul li a:hover { color: var(--text-bright); }
 
   /* HERO */
   .hero {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 130px 24px 110px;
+    padding: 12rem 4rem 5rem;
     text-align: center;
+    animation: fadeUp 0.8s ease 0.15s both;
   }
 
   .hero-tag {
-    font-size: 0.67rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-    margin-bottom: 32px;
-    display: block;
+    color: var(--highlight);
+    margin-bottom: 1.4rem;
   }
 
   .hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    font-weight: 300;
-    color: #fff;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
-    margin-bottom: 22px;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    color: var(--text-bright);
+    line-height: 1.15;
+    margin-bottom: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
   }
-
-  .hero h1 strong { font-weight: 700; }
 
   .hero p {
-    font-size: 0.925rem;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.85;
-    margin-bottom: 48px;
-  }
-
-  .btn {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #0c0c0e;
-    background: #fff;
-    padding: 13px 28px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: opacity 0.15s;
-  }
-
-  .btn:hover { opacity: 0.85; }
-
-  /* ARTICLES GRID */
-  .articles {
-    max-width: 1100px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-dim);
+    max-width: 500px;
     margin: 0 auto;
-    padding: 80px 40px 110px;
   }
 
-  .label {
-    font-size: 0.67rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-    margin-bottom: 40px;
-    text-align: center;
+  /* DIVIDER */
+  .divider {
+    margin: 3rem 4rem;
+    border: none;
+    border-top: 1px solid var(--border);
+    animation: expand 0.9s ease 0.4s both;
+    transform-origin: left;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
+  /* FEATURED */
+  .featured {
+    margin: 0 4rem 2rem;
+    padding: 2.5rem;
     border: 1px solid var(--border);
+    border-radius: 12px;
+    position: relative;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+
+  .featured::after {
+    content: 'FEATURED';
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: var(--border);
+  }
+
+  .featured-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 0.8rem;
+  }
+
+  .featured-title {
+    font-size: 1.5rem;
+    color: var(--text-bright);
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    max-width: 560px;
+  }
+
+  .featured-body {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+    max-width: 600px;
+  }
+
+  .read-btn {
+    margin-top: 1.4rem;
+    display: inline-block;
+    padding: 0.55rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text);
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.25s;
+  }
+  .read-btn:hover {
+    background: var(--highlight);
+    border-color: var(--highlight);
+    color: #fff;
+  }
+
+  /* ARTICLES BOX */
+  .articles-box {
+    margin: 0 4rem 3rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    animation: fadeUp 0.8s ease 0.35s both;
+  }
+
+  .articles-header {
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-dim);
   }
 
   .article {
-    padding: 36px 32px;
-    border-right: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: start;
+    gap: 2rem;
+    padding: 1.8rem 2rem;
+    border-bottom: 1px solid var(--border);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
     transition: background 0.2s;
   }
 
-  .article:last-child { border-right: none; }
-  .article:hover { background: rgba(255,255,255,0.03); }
+  .article:last-child { border-bottom: none; }
 
-  .a-meta {
-    font-size: 0.67rem;
-    font-weight: 500;
+  .article::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--highlight);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+  }
+
+  .article:hover::before { transform: scaleY(1); }
+  .article:hover .article-title { color: var(--text-bright); }
+  .article:hover .article-arrow { opacity: 1; transform: translateX(0); }
+
+  .article-num {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    padding-top: 0.2rem;
+  }
+
+  .article-meta {
+    font-size: 0.65rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-    margin-bottom: 14px;
+    color: var(--highlight);
+    margin-bottom: 0.4rem;
   }
 
-  .article h2 {
-    font-size: 0.975rem;
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.45;
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
-  }
-
-  .article p {
-    font-size: 0.83rem;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.75;
-    margin-bottom: 20px;
-  }
-
-  .a-link {
-    font-size: 0.67rem;
+  .article-title {
+    font-size: 1rem;
+    color: var(--text);
     font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    text-decoration: none;
-    transition: color 0.15s;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    transition: color 0.25s;
   }
 
-  .a-link:hover { color: #fff; }
+  .article-excerpt {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.75;
+  }
+
+  .article-arrow {
+    font-size: 1rem;
+    color: var(--highlight);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.25s ease;
+    align-self: center;
+  }
+
+  .article:nth-child(1) { animation: fadeUp 0.7s ease 0.45s both; }
+  .article:nth-child(2) { animation: fadeUp 0.7s ease 0.55s both; }
+  .article:nth-child(3) { animation: fadeUp 0.7s ease 0.65s both; }
+  .article:nth-child(4) { animation: fadeUp 0.7s ease 0.75s both; }
 
   /* NEWSLETTER */
   .newsletter {
-    background: #f5f4f2;
-    padding: 110px 24px;
+    padding: 0 4rem 5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .newsletter-inner {
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 4rem 5rem;
+  }
+
+  .newsletter-inner h2 {
+    font-size: 1.6rem;
+    color: var(--text-bright);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+  }
+
+  .newsletter-inner > p {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.75;
+    margin-bottom: 2.2rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .form-row label {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.4rem;
+    text-align: left;
+  }
+
+  .form-row input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-bright);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.25s;
+  }
+
+  .form-row input::placeholder { color: var(--text-dim); }
+  .form-row input:focus { border-color: var(--highlight); }
+
+  .form-submit {
+    padding: 0.9rem;
+    background: var(--highlight);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.25s;
+  }
+  .form-submit:hover { opacity: 0.85; }
+
+  .newsletter-note {
+    font-size: 0.65rem;
+    color: var(--text-dim);
     text-align: center;
   }
 
-  .nl-inner { max-width: 440px; margin: 0 auto; }
-
-  .nl-icon {
-    width: 46px;
-    height: 46px;
-    background: #0c0c0e;
-    border-radius: 10px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 28px;
-  }
-
-  .newsletter h2 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 700;
-    color: #0c0c0e;
-    letter-spacing: -0.025em;
-    line-height: 1.2;
-    margin-bottom: 10px;
-  }
-
-  .newsletter p {
-    font-size: 0.85rem;
-    color: #888;
-    margin-bottom: 32px;
-    line-height: 1.7;
-  }
-
-  .nl-form {
-    display: flex;
-    border: 1px solid #ddd;
+  .success-msg {
+    display: none;
+    padding: 0.9rem;
+    border: 1px solid var(--highlight);
     border-radius: 6px;
-    overflow: hidden;
-    background: #fff;
+    font-size: 0.78rem;
+    color: var(--highlight);
+    text-align: center;
   }
-
-  .nl-form input {
-    flex: 1;
-    padding: 13px 16px;
-    border: none;
-    outline: none;
-    font-family: inherit;
-    font-size: 0.85rem;
-    color: #0c0c0e;
-    background: transparent;
-  }
-
-  .nl-form input::placeholder { color: #bbb; }
-
-  .nl-form button {
-    padding: 13px 20px;
-    background: #0c0c0e;
-    color: #fff;
-    border: none;
-    font-family: inherit;
-    font-size: 0.67rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: opacity 0.15s;
-    white-space: nowrap;
-  }
-
-  .nl-form button:hover { opacity: 0.75; }
-
-  .nl-note { font-size: 0.68rem; color: #bbb; margin-top: 12px; }
 
   /* FOOTER */
   footer {
-    background: var(--surface);
+    padding: 1.8rem 4rem;
     border-top: 1px solid var(--border);
-    padding: 52px 48px 32px;
-  }
-
-  .ft-inner { max-width: 1100px; margin: 0 auto; }
-
-  .ft-top {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 32px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+    align-items: center;
+    font-size: 0.65rem;
+    color: var(--text-dim);
   }
 
-  .ft-logo {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #fff;
-    margin-bottom: 8px;
+  /* ANIMATIONS */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  .ft-brand p {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.2);
-    max-width: 180px;
-    line-height: 1.6;
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  .ft-links { display: flex; flex-direction: column; gap: 8px; }
-
-  .ft-links a {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.25);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: color 0.15s;
-  }
-
-  .ft-links a:hover { color: #fff; }
-
-  .ft-bottom {
-    border-top: 1px solid var(--border);
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .ft-bottom p { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
-
-  @media (max-width: 768px) {
-    .grid { grid-template-columns: 1fr; }
-    .article { border-right: none; border-bottom: 1px solid var(--border); }
-    nav { padding: 18px 20px; }
-    .articles { padding: 60px 20px 80px; }
-    footer { padding: 44px 20px 28px; }
+  @keyframes expand {
+    from { transform: scaleX(0); opacity: 0; }
+    to { transform: scaleX(1); opacity: 1; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="logo">Longevity</a>
-  <div class="nav-right">
-    <a href="#articles">Articles</a>
-    <a href="#newsletter" class="nav-cta">Newsletter</a>
-  </div>
+  <div class="logo">Dan's Thoughts</div>
+  <ul>
+    <li><a href="#">Essays</a></li>
+    <li><a href="#">Notes</a></li>
+    <li><a href="#">Archive</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
 </nav>
 
 <section class="hero">
-  <span class="hero-tag">Santé · Longévité · Cognition</span>
-  <h1><strong>Vivre mieux.</strong><br>Penser plus clair.</h1>
-  <p>Les idées qui changent votre rapport au temps, au corps et à la performance — distillées chaque semaine.</p>
-  <a href="#articles" class="btn">Lire les articles</a>
+  <div class="hero-tag">— A personal journal</div>
+  <h1>Writing slowly,<br>thinking clearly.</h1>
+  <p>A space for slow ideas, deep reflections, and texts worth reading twice.</p>
 </section>
 
-<section class="articles" id="articles">
-  <p class="label">Articles</p>
-  <div class="grid">
+<hr class="divider">
 
-    <article class="article">
-      <p class="a-meta">31 août 2025 · 12 min</p>
-      <h2>A Complete Knowledge Base Of Human 3.0</h2>
-      <p>Validation scientifique, contexte historique et pratiques concrètes pour atteindre votre plein potentiel.</p>
-      <a href="#" class="a-link">Lire →</a>
-    </article>
+<div class="featured">
+  <div class="featured-label">This week</div>
+  <h2 class="featured-title">Silence as a first language</h2>
+  <p class="featured-body">In a world saturated with noise, learning to inhabit stillness isn't a retreat — it's a return to oneself. A reflection on what we lose by speaking too much, and what we gain by truly listening.</p>
+  <button class="read-btn">Read the piece →</button>
+</div>
 
-    <article class="article">
-      <p class="a-meta">26 août 2025 · 9 min</p>
-      <h2>Une carte pour atteindre le top 1%</h2>
-      <p>Un cadre complet pour maximiser votre potentiel dans tous les domaines — corps, esprit, vocation.</p>
-      <a href="#" class="a-link">Lire →</a>
-    </article>
+<div class="articles-box">
+  <div class="articles-header">Recent</div>
 
-    <article class="article">
-      <p class="a-meta">31 juil. 2025 · 7 min</p>
-      <h2>Vous n'avez pas besoin d'une niche.</h2>
-      <p>Ce que vous cherchez vraiment, c'est un point de vue. Voilà pourquoi c'est une différence qui change tout.</p>
-      <a href="#" class="a-link">Lire →</a>
-    </article>
+  <article class="article">
+    <div class="article-num">001</div>
+    <div class="article-content">
+      <div class="article-meta">Philosophy — Feb 14, 2026</div>
+      <h2 class="article-title">The art of thinking slowly</h2>
+      <p class="article-excerpt">Speed has become a modern virtue. But some ideas can only be grasped by walking at a slower pace, letting them steep.</p>
+    </div>
+    <div class="article-arrow">→</div>
+  </article>
 
-    <article class="article" style="border-top:1px solid var(--border)">
-      <p class="a-meta">14 juil. 2025 · 11 min</p>
-      <h2>Votre perception du temps détermine votre futur</h2>
-      <p>La planification à long terme dépend de la qualité de votre attention dans l'instant.</p>
-      <a href="#" class="a-link">Lire →</a>
-    </article>
+  <article class="article">
+    <div class="article-num">002</div>
+    <div class="article-content">
+      <div class="article-meta">Aesthetics — Feb 8, 2026</div>
+      <h2 class="article-title">What the night reveals</h2>
+      <p class="article-excerpt">Cities change after midnight. Masks fall, lights thin out. The night doesn't hide — it reveals.</p>
+    </div>
+    <div class="article-arrow">→</div>
+  </article>
 
-    <article class="article" style="border-top:1px solid var(--border)">
-      <p class="a-meta">2 juil. 2025 · 8 min</p>
-      <h2>Le paradoxe de l'effort : moins travailler pour accomplir davantage</h2>
-      <p>Ce que la science dit réellement sur la récupération cognitive et la performance humaine.</p>
-      <a href="#" class="a-link">Lire →</a>
-    </article>
+  <article class="article">
+    <div class="article-num">003</div>
+    <div class="article-content">
+      <div class="article-meta">Language — Feb 1, 2026</div>
+      <h2 class="article-title">Words we don't have yet</h2>
+      <p class="article-excerpt">There are universal human experiences for which English still has no words. A tour of the gaps.</p>
+    </div>
+    <div class="article-arrow">→</div>
+  </article>
 
-    <article class="article" style="border-top:1px solid var(--border)">
-      <p class="a-meta">18 juin 2025 · 10 min</p>
-      <h2>Autophagie : le mécanisme que vous activez chaque jour</h2>
-      <p>Votre corps nettoie ses propres cellules en permanence. Comprendre ce système transforme tout.</p>
-      <a href="#" class="a-link">Lire →</a>
-    </article>
+  <article class="article">
+    <div class="article-num">004</div>
+    <div class="article-content">
+      <div class="article-meta">Memory — Jan 24, 2026</div>
+      <h2 class="article-title">Archaeology of the everyday</h2>
+      <p class="article-excerpt">Our ordinary objects are the strata of our personal history. What our drawers say about who we used to be.</p>
+    </div>
+    <div class="article-arrow">→</div>
+  </article>
 
-  </div>
-</section>
+</div>
 
 <section class="newsletter" id="newsletter">
-  <div class="nl-inner">
-    <div class="nl-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5f4f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-      </svg>
+  <div class="newsletter-inner">
+    <h2>Join the monthly letter.</h2>
+    <p>No noise. Just one carefully written piece, a few selected reads, and a little light in your inbox — once a month.</p>
+    <div class="newsletter-form">
+      <div class="form-row">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@example.com">
+      </div>
+      <button class="form-submit" onclick="handleSubscribe()">Subscribe</button>
+      <div class="success-msg" id="successMsg">✓ Welcome. Your first letter is on its way.</div>
+      <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
     </div>
-    <h2>Longevity's Newsletter</h2>
-    <p>Rejoignez les 0,01% qui prennent leur biologie au sérieux.<br>Un email par semaine — pas de bruit.</p>
-    <form class="nl-form" onsubmit="return false;">
-      <input type="email" placeholder="Votre email">
-      <button type="submit">S'abonner</button>
-    </form>
-    <p class="nl-note">Gratuit. Désabonnement en un clic.</p>
   </div>
 </section>
 
 <footer>
-  <div class="ft-inner">
-    <div class="ft-top">
-      <div class="ft-brand">
-        <div class="ft-logo">Longevity</div>
-        <p>Penser la biologie humaine autrement.</p>
-      </div>
-      <div class="ft-links">
-        <a href="#">Articles</a>
-        <a href="#newsletter">Newsletter</a>
-        <a href="#">À propos</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
-    <div class="ft-bottom">
-      <p>© 2025 Longevity's Newsletter</p>
-      <p>Conçu avec intention.</p>
-    </div>
-  </div>
+  <span>© 2026 Dan's Thoughts</span>
+  <span>Written with care</span>
 </footer>
+
+<script>
+function handleSubscribe() {
+  const email = document.getElementById('email').value;
+  if (!email || !email.includes('@')) {
+    document.getElementById('email').style.borderColor = '#c0392b';
+    return;
+  }
+  document.querySelector('.form-submit').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+</script>
 
 </body>
 </html>
